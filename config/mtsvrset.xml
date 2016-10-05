@@ -6,7 +6,7 @@
       app_options:  if the certain option is specified, it will overwrite the option; or inherit from the default option;
   -->
     <digitizer_options>
-        <global>
+        <global send_passive_pen="false">
             <dbclick_optimize enable="false" interval="300" dis="18.690000" />
             <writing_optimize enable="true" max_length_of_pen_up="4.000000" max_wait_frame_count="4" ratio_area_decrease_to="0.600000" />
         </global>
@@ -21,7 +21,7 @@
     ui_options: options for UI dialog;
         enable_self_checking: not to popup the "Readjust" dialog.
   -->
-    <ui_options enable_self_checking="false" />
+    <ui_options enable_self_checking="false" enable_error_twinkle="false" />
     <!--
     record_option: to record the log or the hardware data, "false" for not record;
   -->
@@ -38,9 +38,11 @@
           this tolerance is in "pixel", not in "millimeter";
   -->
     <taskbar_optimization use="false" tolerance="8" />
-	<win_native_touch enable_passive_pen="2"/>
-    <device_option enable_auto_scale="true" fps="-1" />
-	<composite_screen_manager is_display_duplicate="false"/>
+    <win_native_touch enable_passive_pen="2" enable_touch="true" />
+    <device_option enable_auto_scale="false" fps="-1">
+        <IZ008715DA18 />
+    </device_option>
+    <composite_screen_manager is_display_duplicate="false" />
     <composite_screen group_id="2" total_row="1" total_col="2" display_monitor_mode="blent">
         <physical_screen serial_number="is4211001222" row_in_matrix="0" col_in_matrix="0" virtual_digitizer_id="0">
             <calibration param0="1.000000" param1="0.000000" param2="0.000000" param3="0.000000" param4="0.000000" param5="1.000000" param6="0.000000" param7="0.000000" param8="0.000000" param9="0.000000" param10="1.000000" param11="0.000000" param12="0.000000" param13="0.000000" param14="0.000000" param15="1.000000" />
@@ -146,14 +148,14 @@
            "primary_display": the mouse simulator will send out the mouse event or message only to the primary display;
            "virtual_desktop": ... to the virtual desktop;
   -->
-		<display_mode>
+    <display_mode>
         <screen serial_number="" calibration="virtual_desktop" pqsdk_resolution="virtual_desktop" mouse_input="virtual_desktop">
             <calibration_expected_points point_0_x="8192" point_0_y="8192" point_1_x="24576" point_1_y="8192" point_2_x="8192" point_2_y="24576" point_3_x="24576" point_3_y="24576" />
         </screen>
     </display_mode>
     <ui_config>
         <calibration_expected_points point_0_x="8192" point_0_y="8192" point_1_x="24576" point_1_y="8192" point_2_x="8192" point_2_y="24576" point_3_x="24576" point_3_y="24576" />
-        <calibration param0="1.000000" param1="0.000000" param2="0.000000" param3="0.000000" param4="0.000000" param5="1.000000" param6="0.000000" param7="0.000000" param8="0.000000" param9="0.000000" param10="1.000000" param11="0.000000" param12="0.000000" param13="0.000000" param14="0.000000" param15="1.000000" />
+        <calibration param0="-116134.0077092219435144" param1="-345084.9545571092749014" param2="0.0000000000000000" param3="-14.0588383450251477" param4="-548141.0052846490871161" param5="-1647105.5501545711886138" param6="0.0000000000000000" param7="-66.9705819431169402" param8="0.0000000000000000" param9="0.0000000000000000" param10="1.0000000000000000" param11="0.0000000000000000" param12="11084213739.4925804138183594" param13="33247535407.9671630859375000" param14="0.0000000000000000" param15="1352255.8252526633441448" />
     </ui_config>
     <!-- Tuio:
         profile can be "2dcur"(default)/ "_rect";
@@ -164,7 +166,7 @@
             "p" -> pressure, float value in [0,1];
             "t" -> type, 0:TOUCH, 1:PASSIVE_PEN, 2:ACTIVE_PEN, 4:ERASER, 6:ACTIVE_ERASER
     -->
-    <tuio tuio_support="true" flash_tuio_support="true" profile="2dcur">
+    <tuio tuio_support="true" flash_tuio_support="false" profile="2dcur">
         <server type="udp" host="127.0.0.1" port="3333" />
         <server type="tcp" host="127.0.0.1" port="3000" />
     </tuio>
@@ -200,7 +202,7 @@
     ;if you'd like it to act without the right button of mouse(with left button and some keys),you can add a apptrans like below
         <apptrans appname="your_application.exe" transname="no_right_mouse" />
   -->
-    <server input_interval="1" key_send_interval="200" default_mouse_position="center" socket_port="21555" enable_mouse_key_simulation="true">
+    <server input_interval="1" key_send_interval="200" default_mouse_position="center" socket_port="21555" enable_mouse_key_simulation="true" enable_global_gesture="false">
         <translator_manager>
             <!--<translator name="user_defined"></translator>-->
             <!--
