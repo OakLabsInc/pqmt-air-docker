@@ -8,7 +8,10 @@ LABEL VERSION="0.2.0"
 RUN apt-get update && apt-get install -y -q xvfb
 
 WORKDIR /pqmt
-COPY . /pqmt
+COPY config ./config
+COPY driver ./driver
+COPY mt_driver_kit_linux.tar.bz2 pqmt_install.sh run.sh ./
+
 RUN tar jxf mt_driver_kit_linux.tar.bz2 && \
   chmod +x pqmt_install.sh && \
   /bin/bash pqmt_install.sh && \
