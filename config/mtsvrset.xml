@@ -39,9 +39,7 @@
   -->
     <taskbar_optimization use="false" tolerance="8" />
     <win_native_touch enable_passive_pen="2" enable_touch="true" />
-    <device_option enable_auto_scale="false" fps="-1">
-        <IZ008715DA18 />
-    </device_option>
+    <device_option enable_auto_scale="false" fps="-1" />
     <composite_screen_manager is_display_duplicate="false" />
     <composite_screen group_id="2" total_row="1" total_col="2" display_monitor_mode="blent">
         <physical_screen serial_number="is4211001222" row_in_matrix="0" col_in_matrix="0" virtual_digitizer_id="0">
